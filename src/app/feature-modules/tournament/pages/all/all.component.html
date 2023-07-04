@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="filter">
+        <input type="text" placeholder="search...">
+        <p>remaining filters here</p>
+    </div>
+    <div class="content">
+        <div class="title">
+            <span>Name</span>
+            <span>Creator</span>
+            <span>Level</span>
+            <span (click)="getSortedBy('noOfWordsPerGame')">No of Words</span>
+            <span>Categories</span>
+        </div>
+        <div class="tournaments">
+            
+            <div class="tournament" *ngFor="let tournament of tournamentList">
+                <span>{{tournament.name}}</span>
+                <span>{{tournament.creator[0].username}}</span>
+                <span>{{tournament.level[0].name}}</span>
+                <span>{{tournament.noOfWordsPerGame}}</span>
+                <span>
+                    <span *ngFor="let category of tournament.categories">{{category.name}}</span>
+                </span>
+            </div>
+    
+        </div>
+    </div>
+</div>

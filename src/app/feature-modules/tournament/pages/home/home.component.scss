@@ -1,0 +1,14 @@
+
+.container {
+    height: calc(100vh - 4.25rem);
+    display: flex;
+
+    app-sidebar {
+        flex: 3;
+    }
+
+    .content {
+        padding: 1rem;
+        flex: 6;
+    }
+}

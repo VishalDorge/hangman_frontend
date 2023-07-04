@@ -1,0 +1,41 @@
+<div class="register-container">
+
+    <app-alert *ngIf="registrationError">We are not accepting new Applications currently!</app-alert>
+
+    <div class="register-card">
+        <div class="card-top">
+            <h2>Create a New Account</h2>
+            <p>Its Quick and Easy</p>
+        </div>
+
+        <form [formGroup]="registerForm" (submit)="handleSubmitForm()">
+
+            <app-input [placeholder]="'username'" formControlName="username"></app-input>
+            <app-input [type]="'email'" [placeholder]="'email'" formControlName="email"></app-input>
+            <app-input [type]="'password'" [placeholder]="'password'" formControlName="password"></app-input>
+        
+            <span *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].errors">
+                <span
+                    *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].errors['required']">Password
+                    is Required!</span>
+                <span
+                    *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].errors['minlength']">Password
+                    is too Short!</span>
+            </span>
+           
+            <app-input [type]="'password'" [placeholder]="'confirm password'" formControlName="confirmPassword"></app-input>
+
+            <span *ngIf="registerForm.controls['confirmPassword'].touched && registerForm.controls['confirmPassword'].errors">
+                <span
+                    *ngIf="registerForm.controls['confirmPassword'].errors['confirmPassword']">Password
+                    is Required!</span>
+                <span
+                    *ngIf="!registerForm.hasError('passwordMismatch')">Password Not Matched!</span>
+            </span>
+
+            <app-button [disabled]="!registerForm.valid">Sign Up</app-button>
+        </form>
+
+        <a routerLink="/auth/login">Already have an Account?</a>
+    </div>
+</div>

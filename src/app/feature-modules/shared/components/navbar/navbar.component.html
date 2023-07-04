@@ -1,0 +1,13 @@
+<div class="container">
+
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <!-- <li><a routerLink="/tournament">Tournaments</a></li>
+        <li><a routerLink="#">Notifications</a></li> -->
+    </ul>
+
+    <div>
+        <p *ngIf="getLoginStatus()" (click)="goToDashboard()">Dashboard</p>
+        <p *ngIf="getLoginStatus()" (click)="logout()">Logout</p>
+    </div>
+</div>

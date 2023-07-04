@@ -1,0 +1,39 @@
+<div class="login-container">
+
+    <app-alert *ngIf="invalidCredentials">Invalid Credentials</app-alert>
+
+    <div class="login-card">
+
+        <h2>Login to SportsMania</h2>
+
+        <form (submit)="handleFormSubmit()" [formGroup]="loginForm">
+
+            <app-input [placeholder]="'email'" formControlName="email"></app-input>
+
+            <span *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors">
+                <span
+                    *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors['required']">Email
+                    is Required!</span>
+                <span *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors['email']">Invalid
+                    Email!</span>
+            </span>
+
+            <app-input [type]="'password'" [placeholder]="'password'" formControlName="password"></app-input>
+
+            <span *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors">
+                <span
+                    *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors['required']">Password
+                    is Required!</span>
+                <span
+                    *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors['minlength']">Password
+                    is too Short!</span>
+            </span>
+
+            <app-button [disabled]="!loginForm.valid">Login</app-button>
+
+        </form>
+
+        <a routerLink="/auth/register">Signup for SportsMania</a>
+
+    </div>
+</div>

@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: purple;
+    color: white;
+
+    ul {
+        list-style: none;
+        display: flex;
+        text-align: start;
+        gap: 2rem;
+
+        li {
+            display: flex;
+            align-items: center;
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+    div {
+
+        display: flex;
+        gap: 1rem;
+
+        p {
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+    }
+
+
+}
